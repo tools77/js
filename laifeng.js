@@ -57,6 +57,7 @@ var zr_body=document.getElementsByTagName('body')[0];
 			newBtn_stop_money.appendChild(btnText_stop_money);
 			newBtn_stop_money.setAttribute('onclick','stop_money();')
 			newDiv.appendChild(newBtn_stop_money);
+			/////////////////////////////////////////////////////////////
 			//开启欢迎
 			var newBtn_hy=document.createElement('button');
 			var btnText_hy = document.createTextNode("开启欢迎");
@@ -93,6 +94,7 @@ var zr_body=document.getElementsByTagName('body')[0];
 			newBtn_stop_hy.appendChild(btnText_stop_hy);
 			newBtn_stop_hy.setAttribute('onclick','stop_hy();')
 			newDiv.appendChild(newBtn_stop_hy);
+			///////////////////////////////////////////////
 			//设置按钮样式
 			var newDiv_btn=newDiv.getElementsByTagName('button');
 			for(var i=0;max=newDiv_btn.length,i<max;i++){
@@ -114,15 +116,15 @@ var zr_body=document.getElementsByTagName('body')[0];
 			function send6(){
 				var speak_txt1=document.getElementsByClassName('speak_txt')[0];
 				var send_btn1=document.getElementsByClassName('send-btn')[0];
-				var	click_value='666';
+				var	click_value='66';
 				zr_send6_timer=setInterval(function(){
 					speak_txt1.value=click_value;
 					send_btn1.click();
 					click_value+='6';
-					if(click_value=='6666666'){
-						click_value='666'
+					if(click_value=='66666666'){
+						click_value='66'
 					}
-				},4000);
+				},3000);
 			}
 			//停止6方法
 			function stop_send6(){
@@ -135,8 +137,14 @@ var zr_body=document.getElementsByTagName('body')[0];
 				function zf_method(){
 					var zr_username_pss=document.getElementsByClassName('pss')
 					if(zr_username_pss.length){
-						var zr_username_pss_prnt=zr_username_pss[zr_username_pss.length-1].parentNode.childNodes[0].outerText
+						var zr_username_pss_prnt=zr_username_pss[zr_username_pss.length-1].parentNode.getElementsByClassName('user-name')[0].outerText
+						var zr_username_pss_text=zr_username_pss[zr_username_pss.length-1].outerText;
 						if(get_pssname!=zr_username_pss_prnt){
+							if(zr_username_pss_text=='路转粉了'){
+								zf_str="，感谢路转粉[亲亲]";
+							}else{
+								zf_str="，感谢【"+zr_username_pss_text+"】[亲亲]";
+							}
 							var zf_speak_txt1=document.getElementsByClassName('speak_txt')[0];
 							var zf_send_btn1=document.getElementsByClassName('send-btn')[0];
 							var	zf_click_value='@'+zr_username_pss_prnt+zf_str;
